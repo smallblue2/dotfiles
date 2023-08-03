@@ -1,0 +1,258 @@
+/**
+ * rofi -dump-theme output.
+ * Rofi version: 1.7.5
+ **/
+* {
+    // EVERFOREST Colours
+    bg-dim:			 rgba ( 41, 49, 54, 100 % );
+    bg0:			 rgba ( 51, 60, 67, 100 % );
+    bg1:			 rgba ( 58, 70, 76, 100 % );
+    bg2:			 rgba ( 67, 79, 85, 100 % );
+    bg3:			 rgba ( 77, 89, 96, 100 % );
+    bg4:			 rgba ( 85, 95, 102, 100 % );
+    bg5:			 rgba ( 93, 107, 102, 100 % );
+    bg-red:			 rgba ( 92, 63, 79, 100 % );
+    bg-org:			 rgba ( 89, 70, 76, 100 % );
+    bg-ylw:			 rgba ( 85, 84, 74, 100 % );
+    bg-grn:			 rgba ( 72, 88, 78, 100 % );
+    bg-blu:			 rgba ( 63, 88, 101, 100 % );
+    red:			 rgba ( 230, 126, 128, 100 % );
+    org:			 rgba ( 230, 152, 117, 100 % );
+    ylw:			 rgba ( 219, 188, 127, 100 % );
+    grn:			 rgba ( 167, 192, 128, 100 % );
+    blu:			 rgba ( 127, 187, 179, 100 % );
+    aqu:			 rgba ( 131, 192, 146, 100 % );
+    pur:			 rgba ( 214, 153, 182, 100 % );
+    fg:				 rgba ( 211, 198, 170, 100 % );
+    gry0:			 rgba ( 122, 132, 120, 100 % );
+    gry1:			 rgba ( 133, 146, 137, 100 % );
+    gry2:			 rgba ( 157, 169, 160, 100 % );
+    // ?
+    alternate-normal-foreground: var(red);
+    // ?
+    alternate-urgent-background: var(red);
+    // ?
+    alternate-active-foreground: var(red);
+    // ?
+    selected-active-background:  var(red);
+    // ?
+    selected-urgent-foreground:  var(red);
+    // ?
+    text-color:                  var(red);
+    // ?
+    normal-foreground:           var(red);
+    // ?
+    urgent-foreground:           var(red);
+    // ?
+    active-background:           var(red);
+    // ?
+    selected-normal-background:  var(red);
+    // ?
+    selected-urgent-background:  var(red);
+    // ?
+    selected-active-foreground:  var(red);
+    // ?
+    separatorcolor:              var(red);
+    // ?
+    alternate-active-background: var(red);
+    // ?
+    alternate-urgent-foreground: var(red);
+    // Background Color
+    background-color:            transparent;
+    // ?
+    normal-background:           var(red);
+    // Border Of The Window
+    border-color:                var(bg4);
+    // ?
+    alternate-normal-background: var(red);
+    // ?
+    selected-normal-foreground:  var(red);
+    // ?
+    urgent-background:           var(red);
+    // ?
+    active-foreground:           var(red);
+    font:                        "FiraCode Nerd Font Medium 12";
+    margin:                      0;
+    padding:                     0;
+    spacing:                     0;
+}
+// ?
+element {
+    padding:          8px ;
+    background-color: Red;
+    cursor:           pointer;
+    spacing:          8px ;
+    border:           0;
+}
+// Normal element
+element normal.normal {
+    background-color: var(bg1);
+    text-color:       var(ylw);
+}
+element normal.urgent {
+    background-color: var(red);
+    text-color:       var(red);
+}
+// Active
+element normal.active {
+    background-color: var(bg-grn);
+    text-color:       var(grn);
+}
+// ?
+element selected {
+    text-color: var(red);
+}
+// Selected Element
+element selected.normal {
+    background-color: var(grn);
+    text-color:       var(bg-dim);
+}
+// ?
+element selected.urgent {
+    background-color: var(red);
+    text-color:       var(red);
+}
+// Selected AND Active
+element selected.active {
+    background-color: var(blu);
+    text-color:       var(bg0);
+}
+// Alternate List Element
+element alternate.normal {
+    background-color: var(bg3);
+    text-color:       var(fg);
+}
+// ?
+element alternate.urgent {
+    background-color: var(red);
+    text-color:       var(red);
+}
+// ?
+element alternate.active {
+    background-color: var(red);
+    text-color:       var(red);
+}
+// ?
+element-text {
+    background-color: transparent;
+    cursor:           inherit;
+    highlight:        inherit;
+    vertical-align:   0.50;
+    text-color:       inherit;
+}
+// ?
+element-icon {
+    background-color: transparent;
+    size:             0.8000em ;
+    cursor:           inherit;
+    vertical-align:   0.50;
+    text-color:       inherit;
+}
+// ?
+window {
+    padding:          5;
+    background-color: var(bg-dim);
+    location:         center;
+    width:            480;
+    border:           1;
+}
+// ?
+mainbox {
+    padding: 0;
+    border:  0;
+}
+// ?
+message {
+    padding:      1px ;
+    border-color: var(red);
+    border:       2px dash 0px 0px ;
+}
+// ?
+textbox {
+    padding:          8px ;
+    background-color: var(red);
+    text-color:       var(red);
+}
+// Border Under Input Box
+listview {
+    fixed-height: false;
+    padding:      4px 0px ;
+    scrollbar:    true;
+    lines:        8;
+    border-color: var(bg4);
+    columns:      1;
+    border:       2px dash 0px 0px ;
+    spacing:      2px ;
+}
+// Scrollbar
+scrollbar {
+    width:        4px ;
+    padding:      0;
+    handle-width: 8px ;
+    border:       0;
+    handle-color: var(bg4);
+}
+// ?
+sidebar {
+    border-color: var(red);
+    border:       2px dash 0px 0px ;
+}
+// ?
+button {
+    cursor:     pointer;
+    spacing:    0;
+    text-color: var(red);
+}
+// ?
+button selected {
+    background-color: var(red);
+    text-color:       var(red);
+}
+// Number Of Filtered Rows
+num-filtered-rows {
+    expand:     false;
+    text-color: var(bg4);
+}
+// Number Of Total Rows
+num-rows {
+    expand:     false;
+    text-color: var(bg4);
+}
+// Textbox Number Seperator
+textbox-num-sep {
+    expand:     false;
+    str:        "/";
+    text-color: var(bg4);
+}
+// Input Bar
+inputbar {
+    padding:          8px ;
+    background-color: var(bg0);
+    spacing:          8px ;
+    text-color:       var(bg5);
+    children:         [ "prompt","textbox-prompt-colon","entry","num-filtered-rows","textbox-num-sep","num-rows","case-indicator" ];
+}
+// ?
+case-indicator {
+    spacing:    0;
+    text-color: var(red);
+}
+// Cursor & Placeholder Text
+entry {
+    text-color:        var(grn);
+    cursor:            text;
+    placeholder-color: var(bg4);
+    placeholder:       "Type to filter";
+}
+// Box Label (run, window, etc)
+prompt {
+    vertical-align: 0.50;
+    spacing:        0;
+    text-color:     var(grn);
+}
+textbox-prompt-colon {
+    margin:     0px 0.3000em 0.0000em 0.0000em ;
+    expand:     false;
+    str:        ":";
+    text-color: inherit;
+}

@@ -114,7 +114,7 @@ link_file () {
         fi
     fi
 
-    # Link the files
+    # Link the files (soft link or symlink)
     if [ "$skip" != "true" ] # false or empty
     then
         ln -s "$1" "$2"
@@ -173,6 +173,13 @@ backup_dotfiles () {
             dst=$(eval echo "$line" | cut -d '=' -f 1)
             src=$(eval echo "$line" | cut -d '=' -f 2)
             
+            # Check if they're soft links (we'd essentially be cp'ing a file with itself)
+            if [ "$src" -ef "$dst" ]
+            then
+                info "$src and $dst are the same file."
+                continue
+            fi
+
             if [ -f "$src" ] || [ -d "$src" ]
             then
                 cp -r "$src" "$dst"

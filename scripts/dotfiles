@@ -1,0 +1,213 @@
+#!/usr/bin/env bash
+
+# Go one dir up to dotfiles
+cd "$(dirname "$0")/.."
+DOTFILES=$(pwd -P)
+
+# Script exits on any error
+set -e
+echo ''
+
+
+# Utility functions for printing with colour
+
+# Blue
+info () {
+  printf "\r  [ \033[00;34m..\033[0m ] $1\n"
+}
+
+# Yellow
+user () {
+  printf "\r  [ \033[0;33m??\033[0m ] $1\n"
+}
+
+# Green
+success () {
+  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
+}
+
+# Red
+fail () {
+  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
+  echo ''
+  exit
+}
+
+# This function creates symbolic links ('ln -s')
+# Before creating the link, it checks if the target file already exists
+# If the file exists, it offers options like overwrite, skip, backup, etc
+link_file () {
+    # Assign arguments to variables
+    local src=$1 dst=$2
+
+    local overwrite=
+    local backup=
+    local skip=
+    local action=
+
+    # If $dst is a file, directory or link
+    if [ -f "$dst" ] || [ -d "$dst" ] || [ -L "$dst" ]
+    then
+
+        if [ "$overwrite_all" == "false" ] && [ "$backup_all" == "false" ] && [ "$skip_all" == "false" ]
+        then
+
+            # ignoring exit 1 from readlink in case where file already exists
+            # shellcheck disable=SC2155
+            local currentSrc="$(readlink $dst)"
+
+            # If the src and destination files are the same, skip
+            if [ "$currentSrc" == "$src" ]
+            then
+
+                skip=true;
+
+            else
+
+                # Prompt the user on what to do
+                user "File already exists: $dst ($(basename "$src")), what do you want to do?\n[s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
+                # Get user input
+                read -n 1 action < /dev/tty
+
+                # case to interpret use input
+                case "$action" in
+                    o )
+                        overwrite=true;;
+                    O )
+                        overwrite_all=true;;
+                    b )
+                        backup=true;;
+                    B )
+                        backup_all=true;;
+                    s )
+                        skip=true;;
+                    S )
+                        skip_all=true;;
+                    * )
+                        ;;
+                esac
+            fi
+        fi
+
+        # If the variable is unset, set them to;
+        overwrite=${overwrite:-$overwrite_all}
+        backup=${backup:-$backup_all}
+        skip=${skip:-$skip_all}
+
+        # If overwrite, remove
+        if [ "$overwrite" == "true" ]
+        then
+            rm -rf "$dst"
+            success "removed $dst"
+        fi
+
+        # If backup, backup the old file
+        if [ "$backup" == "true" ]
+        then
+            mv "$dst" "${dst}.backup"
+            success "moved $dst to ${dst}.backup"
+        fi
+
+        if [ "$skip" == "true" ]
+        then
+            success "skipped $src"
+        fi
+    fi
+
+    # Link the files
+    if [ "$skip" != "true" ] # false or empty
+    then
+        ln -s "$1" "$2"
+        success "linked $1 to $2"
+    fi
+}
+
+# Fetches a proprty value from a given proprty file based on a key
+prop () {
+    PROP_KEY=$1
+    PROP_FILE=$2
+    PROP_VALUE=$(eval echo "$(cat $PROP_FILE | grep "$PROP_KEY" | cut -d '=' -f 2)")
+    echo $PROP_VALUE
+}
+
+# This function searches for files named 'links.prop' within the 'DOTFILES' directory (excluding git directories)
+# for each 'links.prop' found, it reads the source and destination paths from the file
+# It then uses link_fil() to create symbolic links for each of these files
+install_dotfiles () {
+    info 'installing dotfiles'
+
+    # Define variables
+    local overwrite_all=false backup_all=false skip_all=false
+
+    # Look for 'links.prop' files within $DOTFILES
+    # Don't go deeper than 2 depth, ignore .git directories
+    find -H "$DOTFILES" -maxdepth 2 -name 'links.prop' -not -path '*.git' | while read linkfile
+    do
+        # Iterate over each line of any 'links.prop' files found
+        cat "$linkfile" | while read line
+        do
+            # Define variables
+            local src dst dir
+            src=$(eval echo "$line" | cut -d '=' -f1)
+            dst=$(eval echo "$line" | cut -d '=' -f2)
+            dir=$(dirname $dst)
+
+            # Ensure the directory for the destination path
+            # exists (without this check, creating symbol links could fail)
+            mkdir -p "$dir"
+            # Link dotfiles
+            link_file "$src" "$dst"
+        done
+    done
+}
+
+# Simple function that reads the linkfiles and copies them to this repo
+backup_dotfiles () {
+    info 'Backing up dotfiles'
+
+    find -H "$DOTFILES" -maxdepth 2 -name 'links.prop' -not -path '*.git' | while read linkfile
+    do
+        cat "$linkfile" | while read line
+        do
+            local src dst
+            dst=$(eval echo "$line" | cut -d '=' -f 1)
+            src=$(eval echo "$line" | cut -d '=' -f 2)
+            
+            if [ -f "$src" ] || [ -d "$src" ]
+            then
+                cp -r "$src" "$dst"
+                success "Backed up $src to $dst"
+            else
+                fail "$src does not exist on this system!"
+            fi
+        done
+    done
+}
+
+# Main part of the script
+#
+# Check if an argument was provided
+if [ "$1" == "backup" ]
+then
+    backup_dotfiles
+elif [ "$1" == "install" ]
+then
+    install_dotfiles
+else
+    # Else ask the user for functionality
+    printf "Choose mode:\n[b]ackup\n[i]nstall\n\n"
+    # Get user input
+    read -n 1 choice < /dev/tty
+
+    case "$choice" in
+        b )
+            backup_dotfiles ;;
+        i )
+            install_dotfiles ;;
+        * )
+            fail "Invalid choice" ;;
+    esac
+fi
+
+printf '\n'
+success 'All Done!'

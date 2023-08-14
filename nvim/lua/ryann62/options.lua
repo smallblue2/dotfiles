@@ -12,3 +12,18 @@ vim.o.number = true
 
 -- Enable relative line numbers
 vim.o.relativenumber = true
+
+-- Smartindent
+vim.o.smartindent = true
+
+-- Scrolloff (Number of lines to show above and below cursor)
+vim.opt.scrolloff = 8
+
+-- Enable signcolumn
+vim.opt.signcolumn = "yes"
+
+-- Enable incremental search
+vim.opt.incsearch = true
+
+-- Enable better colours
+vim.opt.termguicolors = true

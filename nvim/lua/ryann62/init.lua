@@ -4,4 +4,4 @@ require("ryann62.remap")
 require("ryann62.packer")
 
 -- Set the colorscheme
-require("everforest").load()
+vim.cmd([[colorscheme everforest]])

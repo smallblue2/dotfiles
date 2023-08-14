@@ -1,4 +1,20 @@
 local builtin = require('telescope.builtin')
+local actions = require('telescope.actions')
+
+-- Telescope config
+require('telescope').setup{
+    defaults = {
+        mappings = {
+            i = { -- Insert mode mappings
+                ["<C-j>"] = actions.move_selection_next,
+                ["<C-k>"] = actions.move_selection_previous,
+            },
+        },
+    }
+}
+
+
+-- Custom keymaps
 
 -- Project File (Find a file)
 vim.keymap.set('n', '<leader>pf', builtin.find_files, {})

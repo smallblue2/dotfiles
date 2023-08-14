@@ -71,7 +71,7 @@
     urgent-background:           var(red);
     // ?
     active-foreground:           var(red);
-    font:                        "FiraCode Nerd Font Medium 12";
+    font:                        "Cousine Regular 12";
     margin:                      0;
     padding:                     0;
     spacing:                     0;

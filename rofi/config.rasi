@@ -71,7 +71,7 @@
     urgent-background:           var(red);
     // ?
     active-foreground:           var(red);
-    font:                        "Cousine Regular 12";
+    font:                        "JetBrainsMono Nerd Font Regular 12";
     margin:                      0;
     padding:                     0;
     spacing:                     0;

@@ -8,7 +8,7 @@ floating_modifier $mod
 bindsym $mod+x kill
 
 # Lockscreen
-bindsym $mod+BackSpace exec $DOTFILES/scripts/lock
+bindsym $mod+BackSpace exec /home/ryann62/dotfiles/scripts/lock
 
 # Change focus
 bindsym $mod+h focus left
@@ -120,10 +120,10 @@ gaps inner 5px
 # Auto-start Programs
 
 # Polybar
-exec_always --no-startup-id $DOTFILES/polybar/launch.sh
+exec_always --no-startup-id /home/ryann62/dotfiles/polybar/launch.sh
 
 # Feh
-exec_always --no-startup-id /usr/bin/feh --bg-scale $DOTFILES/wallpapers/redwoods.jpg
+exec_always --no-startup-id /usr/bin/feh --bg-scale /home/ryann62/dotfiles/wallpapers/redwoods.jpg
 
 # Picom
 exec_always --no-startup-id picom -f
@@ -139,4 +139,4 @@ for_window [class="firefox"] move to workspace $ws2
 for_window [class="obsidian"] move to workspace $ws3
 
 # Font
-font pango:Cousine 11
+font pango:JetBrainsMono Nerd Font 11

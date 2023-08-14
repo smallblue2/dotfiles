@@ -117,10 +117,10 @@ bindsym $mod+Shift+o resize shrink right 10 px or 10 ppt
 # Auto-start Programs
 
 # Polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $DOTFILES/polybar/launch.sh
 
 # Feh
-exec_always --no-startup-id /usr/bin/feh --bg-scale /home/ryann62/wallpapers/redwoods.jpg
+exec_always --no-startup-id /usr/bin/feh --bg-scale $DOTFILES/wallpapers/redwoods.jpg
 
 # Picom
 exec_always --no-startup-id picom -f

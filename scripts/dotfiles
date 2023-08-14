@@ -196,9 +196,14 @@ backup_dotfiles () {
                         info "Skipping $dst..."
                         continue
                     fi
-                    cp -r "$src" "$dst"
-                    success "Backed up $src to $dst"
+                else
+                    # Make sure we have the directory
+                    dir=$(dirname $dst)
+                    mkdir -p "$dir"
                 fi
+                # Copy it over
+                cp -r "$src" "$dst"
+                success "Backed up $src to $dst"
             else
                 fail "$src does not exist on this system!"
             fi

@@ -1,0 +1,2 @@
+$DOTFILES/polybar/config.ini=$HOME/.config/polybar/config.ini
+$DOTFILES/polybar/launch.sh=$HOME/.config/polybar/launch.sh

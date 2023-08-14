@@ -187,17 +187,17 @@ backup_dotfiles () {
                 if [ -f "$dst" ] || [ -d "$dst" ]
                 then
                     # Prompt the user on what to do
-                    user "\nFile already exists: $dst ($(basename "$src")), what do you want to do?\n[s]kip, [o]verwrite?"
+                    user "File already exists: $dst ($(basename "$src")), what do you want to do?\n[s]kip, [o]verwrite?"
                     # Get user input
                     read -n 1 action < /dev/tty
                     # Overwrite the file
                     if [ "$action" != "o" ]
                     then
-                        info "\nSkipping $dst..."
+                        info "Skipping $dst..."
                         continue
                     fi
                     cp -r "$src" "$dst"
-                    success "\nBacked up $src to $dst"
+                    success "Backed up $src to $dst"
                 fi
             else
                 fail "$src does not exist on this system!"

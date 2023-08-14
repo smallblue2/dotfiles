@@ -172,7 +172,7 @@ backup_dotfiles () {
             local src dst
             dst=$(eval echo "$line" | cut -d '=' -f 1)
             src=$(eval echo "$line" | cut -d '=' -f 2)
-            
+
             # Check if they're soft links (we'd essentially be cp'ing a file with itself)
             if [ "$src" -ef "$dst" ]
             then
@@ -180,12 +180,26 @@ backup_dotfiles () {
                 continue
             fi
 
-            if [ -f "$src" ] || [ -d "$src" ]
+            # Check to see if the dst already exists (Safety from overwriting good backups from new system)
+            if [ -f "$dst" ] || [ -d "$dst" ]
             then
-                cp -r "$src" "$dst"
-                success "Backed up $src to $dst"
-            else
-                fail "$src does not exist on this system!"
+                # Prompt the user on what to do
+                user "File already exists: $dst ($(basename "$src")), what do you want to do?\n[s]kip, [o]verwrite?"
+                # Get user input
+                read -n 1 action < /dev/tty
+                # Overwrite the file
+                if [ "$action" == "o" ]
+                then
+                    if [ -f "$src" ] || [ -d "$src" ]
+                    then
+                        cp -r "$src" "$dst"
+                        success "Backed up $src to $dst"
+                    else
+                        fail "$src does not exist on this system!"
+                    fi
+                else
+                    info "Skipping $dst..."
+                fi
             fi
         done
     done

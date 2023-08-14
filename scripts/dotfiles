@@ -183,25 +183,24 @@ backup_dotfiles () {
             # Check to see if the src file exists
             if [ -f "$src" ] || [ -d "$src" ]
             then
-                fail "$src does not exist on this system!"
-                continue
-            fi
-
-            # Check to see if the dst already exists (Safety from overwriting good backups from new system)
-            if [ -f "$dst" ] || [ -d "$dst" ]
-            then
-                # Prompt the user on what to do
-                user "\nFile already exists: $dst ($(basename "$src")), what do you want to do?\n[s]kip, [o]verwrite?"
-                # Get user input
-                read -n 1 action < /dev/tty
-                # Overwrite the file
-                if [ "$action" == "o" ]
+                # Check to see if the dst already exists (Safety from overwriting good backups from new system)
+                if [ -f "$dst" ] || [ -d "$dst" ]
                 then
+                    # Prompt the user on what to do
+                    user "\nFile already exists: $dst ($(basename "$src")), what do you want to do?\n[s]kip, [o]verwrite?"
+                    # Get user input
+                    read -n 1 action < /dev/tty
+                    # Overwrite the file
+                    if [ "$action" != "o" ]
+                    then
+                        info "\nSkipping $dst..."
+                        continue
+                    fi
                     cp -r "$src" "$dst"
                     success "\nBacked up $src to $dst"
-                else
-                    info "\nSkipping $dst..."
                 fi
+            else
+                fail "$src does not exist on this system!"
             fi
         done
     done

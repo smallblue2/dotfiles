@@ -8,7 +8,7 @@ floating_modifier $mod
 bindsym $mod+x kill
 
 # Lockscreen
-bindsym $mod+BackSpace exec /home/ryann62/dotfiles/scripts/lock
+bindsym $mod+BackSpace exec $DOTFILES/scripts/lock
 
 # Change focus
 bindsym $mod+h focus left
@@ -83,7 +83,7 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # Open .config
-bindsym $mod+Shift+c exec kitty vim ~/.config/
+bindsym $mod+Shift+c exec kitty nvim $DOTFILES
 
 # Open Firefox
 bindsym $mod+w exec firefox
@@ -117,13 +117,16 @@ bindsym $mod+Shift+o resize shrink right 10 px or 10 ppt
 # Gaps
 gaps inner 5px
 
+# Getting rid of title bars
+for_window [class=".*"] border pixel 3
+
 # Auto-start Programs
 
 # Polybar
-exec_always --no-startup-id /home/ryann62/dotfiles/polybar/launch.sh
+exec_always --no-startup-id $DOTFILES/polybar/launch.sh
 
 # Feh
-exec_always --no-startup-id /usr/bin/feh --bg-scale /home/ryann62/dotfiles/wallpapers/redwoods.jpg
+exec_always --no-startup-id /usr/bin/feh --bg-scale $DOTFILES/wallpapers/redwoods.jpg
 
 # Picom
 exec_always --no-startup-id picom -f
@@ -137,6 +140,7 @@ bindsym $mod+space exec --no-startup-id rofi -show drun
 for_window [class="kitty"] move to workspace $ws1
 for_window [class="firefox"] move to workspace $ws2
 for_window [class="obsidian"] move to workspace $ws3
+for_window [class="discord"] move to workspace $ws4
 
 # Font
 font pango:JetBrainsMono Nerd Font 11

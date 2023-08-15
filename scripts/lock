@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# Based on AUR i3lock-color package
+
 BLANK='#00000000'
 CLEAR='#29313622'
 DEFAULT='#3A464Cff'

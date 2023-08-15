@@ -126,7 +126,7 @@ for_window [class=".*"] border pixel 3
 exec_always --no-startup-id $DOTFILES/polybar/launch.sh
 
 # Feh
-exec_always --no-startup-id /usr/bin/feh --bg-scale $DOTFILES/wallpapers/redwoods.jpg
+exec_always --no-startup-id /usr/bin/feh --bg-scale $DOTFILES/wallpapers/forest-stairs.png
 
 # Picom
 exec_always --no-startup-id picom -f

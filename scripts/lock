@@ -7,19 +7,21 @@ CLEAR='#29313622'
 DEFAULT='#3A464Cff'
 FOREGROUND='#555F66ff'
 TEXT='#DBBC7Fff'
+DATE='#A7C08088'
+BGDIM='#29313666'
 INPUT='#A7C080ff'
 WRONG='#E67E80bb'
 VERIFYING='#7FBBB3ff'
-FONT='Cousine Mono'
+FONT='JetBrainsMono Nerd Font Regular'
 
 i3lock \
---insidever-color=$CLEAR     \
+--insidever-color=$BGDIM     \
 --ringver-color=$VERIFYING   \
 \
---insidewrong-color=$CLEAR   \
+--insidewrong-color=$BGDIM   \
 --ringwrong-color=$WRONG     \
 \
---inside-color=$BLANK        \
+--inside-color=$BGDIM        \
 --ring-color=$DEFAULT        \
 --line-color=$BLANK          \
 --separator-color=$DEFAULT   \
@@ -27,7 +29,7 @@ i3lock \
 --verif-color=$VERIFYING     \
 --wrong-color=$WRONG         \
 --time-color=$INPUT          \
---date-color=$FOREGROUND     \
+--date-color=$DATE     \
 --layout-color=$FOREGROUND   \
 --keyhl-color=$INPUT         \
 --bshl-color=$WRONG          \
@@ -36,8 +38,11 @@ i3lock \
 --blur 9                     \
 --clock                      \
 --indicator                  \
+--radius=100                 \
 --time-str="%H:%M:%S"        \
---date-str="%A, %Y-%m-%d"    \
+--date-str="%A, %d-%m-%Y"    \
+--wrong-text="tf u doin?"    \
+--verif-text="vibing..."     \
 --keylayout 1                \
 --date-font=$FONT            \
 --wrong-font=$FONT           \

@@ -143,5 +143,13 @@ for_window [class="obsidian"] move to workspace $ws3
 for_window [class="discord"] move to workspace $ws4
 for_window [class="Spotify"] move to workspace $ws5
 
+# Colors
+
+# client.<setting> #border #background #text #indicator
+
+# Everforest
+client.focused #83C092 #A7C080 #293136 #7FBBB3
+client.urgent #e67e80 #e67e80 #d8caac #e67e80
+
 # Font
 font pango:JetBrainsMono Nerd Font 11

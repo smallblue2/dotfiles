@@ -1,3 +1,1 @@
 $DOTFILES/nvidia/nvidia.hook=/etc/pacman.d/hooks/nvidia.hook
-$DOTFILES/nvidia/90-nvidia.conf=/etc/X11/xorg.conf.d/90-nvidia.conf
-$DOTFILES/nvidia/nvidia.conf=/etc/modprobe.d/nvidia.conf

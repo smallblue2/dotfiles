@@ -1,2 +1,6 @@
+# Settings for NVIDIA
+# xrandr --setprovideroutputsource modesetting NVIDIA-0
+# xrandr --auto
+
 export DOTFILES=$HOME/dotfiles
 exec i3

@@ -7,6 +7,7 @@ killall -q polybar
 while pgrep -u $UID -x polybar > /dev/null; do sleep 1; done
 
 # Launch polybar, using the default config location ~/.config/polybar/.
-polybar everforest &
+polybar everforest-top &
+polybar everforest-bottom &
 
 echo "Polybar launched..."

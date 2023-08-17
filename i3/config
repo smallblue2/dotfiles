@@ -50,7 +50,7 @@ bindsym $mod+a focus parent
 set $ws1 "1:  Terminal"
 set $ws2 "2:  Firefox"
 set $ws3 "3:  Productivity"
-set $ws4 "4:  Discord"
+set $ws4 "4:  Socials"
 set $ws5 "5:  Spotify"
 set $ws6 "6"
 set $ws7 "7"
@@ -141,6 +141,7 @@ for_window [class="kitty"] move to workspace $ws1
 for_window [class="firefox"] move to workspace $ws2
 for_window [class="obsidian"] move to workspace $ws3
 for_window [class="discord"] move to workspace $ws4
+for_window [class="Slack"] move to workspace $ws4
 for_window [class="Spotify"] move to workspace $ws5
 
 # Colors

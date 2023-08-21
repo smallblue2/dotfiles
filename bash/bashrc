@@ -10,7 +10,7 @@ alias grep='grep --color=auto'
 alias v='vim'
 export DOTFILES="$HOME/dotfiles"
 export ANDROID_SDK_ROOT='$HOME/Android/Sdk'
-export PATH="/opt/flutter/bin:$PATH"
+export PATH="/opt/flutter/bin:$HOME/.cargo/bin:$PATH"
 PS1='[\u@\h \W]\$ '
 
 # >>> conda initialize >>>
@@ -27,4 +27,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-

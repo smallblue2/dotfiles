@@ -15,6 +15,7 @@ if status is-interactive
     set -U fish_user_paths $GOPATH/bin/ $fish_user_paths
     set -U fish_user_paths /usr/local/go/bin/ $fish_user_paths
     set -Ux fish_user_paths /opt/flutter/bin $fish_user_paths
+    set -Ux fish_user_paths $HOME/.cargo/bin $fish_user_paths
 end
 
 # >>> conda initialize >>>

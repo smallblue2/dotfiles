@@ -144,6 +144,9 @@ for_window [class="discord"] move to workspace $ws4
 for_window [class="Slack"] move to workspace $ws4
 for_window [class="Spotify"] move to workspace $ws5
 
+# Lock Applications to Floating
+for_window [title="^Android Emulator"] floating enable
+
 # Colors
 
 # client.<setting> #border #background #text #indicator

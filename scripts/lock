@@ -41,8 +41,8 @@ i3lock \
 --radius=100                 \
 --time-str="%H:%M:%S"        \
 --date-str="%A, %d-%m-%Y"    \
---wrong-text="tf u doin?"    \
---verif-text="vibing..."     \
+--wrong-text="fuck off"      \
+--verif-text="checking..."   \
 --keylayout 1                \
 --date-font=$FONT            \
 --wrong-font=$FONT           \

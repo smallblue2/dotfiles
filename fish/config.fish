@@ -16,6 +16,8 @@ if status is-interactive
     set -U fish_user_paths /usr/local/go/bin/ $fish_user_paths
     set -Ux fish_user_paths /opt/flutter/bin $fish_user_paths
     set -Ux fish_user_paths $HOME/.cargo/bin $fish_user_paths
+    set -Ux PKG_CONFIG_PATH /home/ryann62/College/Project/c-mess/fuse-3.16.1/build/meson-private
+    set -x LD_LIBRARY_PATH /usr/local/lib:$LD_LIBRARY_PATH
 end
 
 # >>> conda initialize >>>
@@ -26,3 +28,9 @@ end
 # <<< conda initialize <<<
 
 fish_vi_key_bindings
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
+
+set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin $PATH /home/ryann62/.ghcup/bin # ghcup-env

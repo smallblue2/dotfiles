@@ -10,7 +10,8 @@ alias grep='grep --color=auto'
 alias v='vim'
 export DOTFILES="$HOME/dotfiles"
 export ANDROID_SDK_ROOT='$HOME/Android/Sdk'
-export PATH="/opt/flutter/bin:$HOME/.cargo/bin:$PATH"
+export PATH="/opt/flutter/bin:$HOME/.cargo/bin:/home/ryann62/College/Project/fuse-3.16.1/build/example/:$PATH"
+export PKG_CONFIG_PATH="$HOME/College/Project/c-mess/fuse-3.16.1/build/meson-private"
 PS1='[\u@\h \W]\$ '
 
 # >>> conda initialize >>>

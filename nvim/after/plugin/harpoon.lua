@@ -2,7 +2,7 @@ local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
 
 -- Add a file to harpoon
-vim.keymap.set("n", "<leader>a", mark.add_file)
+vim.keymap.set("n", "<leader>m", mark.add_file)
 -- Open the visual menu
 vim.keymap.set("n", "<leader>h", ui.toggle_quick_menu)
 

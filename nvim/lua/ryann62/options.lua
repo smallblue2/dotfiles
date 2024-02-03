@@ -27,3 +27,9 @@ vim.opt.incsearch = true
 
 -- Enable better colours
 vim.opt.termguicolors = true
+
+-- Append the ocp-indent path to the runtime path (ocaml for some reason)
+vim.opt.runtimepath:prepend("/home/ryann62/.opam/default/share/ocp-indent/vim")
+
+-- Integrate system clipboard to neovim
+vim.opt.clipboard:append('unnamedplus')

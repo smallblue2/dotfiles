@@ -28,6 +28,9 @@ return require('packer').startup(function(use)
 
     -- Treesitter
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate'})
+    use {
+        'nvim-treesitter/playground'
+    }
 
     -- Harpoon
     use 'ThePrimeagen/harpoon'
@@ -56,4 +59,10 @@ return require('packer').startup(function(use)
             require'colorizer'.setup()
         end
     }
+
+    -- Markdown preview
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    })
 end)

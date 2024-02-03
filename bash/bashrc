@@ -14,6 +14,9 @@ export PATH="/opt/flutter/bin:$HOME/.cargo/bin:/home/ryann62/College/Project/fus
 export PKG_CONFIG_PATH="$HOME/College/Project/c-mess/fuse-3.16.1/build/meson-private"
 PS1='[\u@\h \W]\$ '
 
+# Ocaml
+eval $(opam env)
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/ryann62/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"

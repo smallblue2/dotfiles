@@ -3,4 +3,12 @@
 # xrandr --auto
 
 export DOTFILES=$HOME/dotfiles
+
+# Start picom for compositing
+picom &
+
+# Start my notification centre
+dunst &
+
+# Start the i3 window manager
 exec i3

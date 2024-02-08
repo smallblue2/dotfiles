@@ -94,6 +94,11 @@ bindsym $mod+Return exec kitty
 # Open Flameshot (screenshots)
 bindsym $mod+p exec flameshot gui
 
+# Player controls
+bindsym $mod+Shift+comma exec playerctl previous
+bindsym $mod+Shift+period exec playerctl next
+bindsym $mod+period exec playerctl play-pause
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 

@@ -1,5 +1,5 @@
 [global]
-font = JetBrainsMono Nerd Font 14
+font = JetBrainsMono Nerd Font 11
 
 # Allow a small subset of html markup:
 #   <b>bold</b>
@@ -149,7 +149,7 @@ browser = /usr/bin/firefox -new-tab
 
 # Align icons left/right/off
 icon_position = left 
-max_icon_size = 80
+max_icon_size = 120
 
 # Paths to default icons.
 icon_path = /usr/share/icons/Paper/16x16/mimetypes/:/usr/share/icons/Paper/48x48/status/:/usr/share/icons/Paper/16x16/devices/:/usr/share/icons/Paper/48x48/notifications/:/usr/share/icons/Paper/48x48/emblems/
@@ -198,6 +198,8 @@ foreground = "#E68183"
 background = "#323D43"
 timeout = 8
 
+[Spotify]
+    appname=Spotify
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.

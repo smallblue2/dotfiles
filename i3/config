@@ -159,7 +159,7 @@ for_window [class="PacketTracer"] move to workspace $ws6
 for_window [title="^Android Emulator"] floating enable
 for_window [title="VirtualBox Manager"] floating enable
 for_window [class="PacketTracer"] floating enable
-
+for_window [instance="Godot_Engine"] floating enable
 # Colors
 
 # client.<setting> #border #background #text #indicator

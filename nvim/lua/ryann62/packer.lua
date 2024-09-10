@@ -16,7 +16,7 @@ return require('packer').startup(function(use)
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-    }  
+    }
 
     -- Lua port of Everforest Colorscheme
     use({
@@ -31,6 +31,9 @@ return require('packer').startup(function(use)
     use {
         'nvim-treesitter/playground'
     }
+
+    -- Rustacean
+    use('mrcjkb/rustaceanvim', { lazy = false, version = '^5' })
 
     -- Harpoon
     use 'ThePrimeagen/harpoon'

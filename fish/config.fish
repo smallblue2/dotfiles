@@ -2,6 +2,7 @@ if status is-interactive
     set fish_greeting
     neofetch
     alias n="nano"
+    alias hx="helix"
     alias v="nvim"
     alias e="einstein"
     alias sv="ssh ryann62@student.computing.dcu.ie"

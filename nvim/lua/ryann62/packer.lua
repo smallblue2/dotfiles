@@ -32,9 +32,6 @@ return require('packer').startup(function(use)
         'nvim-treesitter/playground'
     }
 
-    -- Rustacean
-    use('mrcjkb/rustaceanvim', { lazy = false, version = '^5' })
-
     -- Harpoon
     use 'ThePrimeagen/harpoon'
 

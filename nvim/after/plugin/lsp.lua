@@ -64,5 +64,3 @@ lsp.setup()
 vim.diagnostic.config({
     virtual_text = true
 })
-
--- Ensure you have 'nvim-lspconfig' installed (e.g., via your preferred plugin manager)

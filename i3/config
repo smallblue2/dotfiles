@@ -46,8 +46,8 @@ bindsym $mod+a focus parent
 #bindsym $mod+c focus child
 
 # Brightness
-bindsym $mod+minus exec --no-startup-id brightnessctl set 10%-
-bindsym $mod+equal exec --no-startup-id brightnessctl set +10%
+bindsym $mod+minus exec --no-startup-id brightnessctl set 2%-
+bindsym $mod+equal exec --no-startup-id brightnessctl set +2%
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.

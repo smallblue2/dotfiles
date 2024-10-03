@@ -5,6 +5,9 @@ if status is-interactive
     alias hx="helix"
     alias v="nvim"
     alias e="einstein"
+    alias ls="echo 'No such file or directory.'"
+    alias cd=":"
+    # ghp_jLr9A3i46N6IODZG5yqCYtv3U3fSn912T4VL
     alias sv="ssh ryann62@student.computing.dcu.ie"
     alias p="python3"
     alias docker="sudo docker"
@@ -29,7 +32,7 @@ end
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 if test -f /home/ryann62/anaconda3/bin/conda
-    eval /home/ryann62/anaconda3/bin/conda "shell.fish" "hook" $argv | source
+    eval /home/ryann62/anaconda3/bin/conda "shell.fish" hook $argv | source
 end
 # <<< conda initialize <<<
 
@@ -43,5 +46,5 @@ set --export PATH $BUN_INSTALL/bin $PATH
 # ocaml
 eval (opam env --switch=default)
 
-set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin $PATH /home/ryann62/.ghcup/bin # ghcup-env
-
+set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME
+set -gx PATH $HOME/.cabal/bin $PATH /home/ryann62/.ghcup/bin # ghcup-env

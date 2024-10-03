@@ -1,6 +1,9 @@
 # Set the modifier to windows
 set $mod Mod4
 
+# Set the escape and capslock keys to swap
+exec --no-startup-id setxkbmap -option caps:swapescape
+
 # Mouse+$mod to drag floating windows
 floating_modifier $mod
 

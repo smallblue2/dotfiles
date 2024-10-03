@@ -1,0 +1,4 @@
+[[language]]
+name = "markdown"
+text-width = 75
+soft-wrap = { enable = true, wrap-at-text-width = true }

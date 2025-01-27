@@ -2,3 +2,16 @@
 name = "markdown"
 text-width = 75
 soft-wrap = { enable = true, wrap-at-text-width = true }
+
+[[language]]
+name = "antlr"
+scope = "source.g4"
+injection-regex = "g4"
+file-types = ["g4"]
+indent = { tab-width = 4, unit = "    " }
+comment-tokens = "//"
+
+[[language]]
+name = "python"
+file-types = ["py"]
+indent = { tab-width = 4, unit = "    " }

@@ -13,6 +13,10 @@ bindsym $mod+x kill
 # Lockscreen
 bindsym $mod+BackSpace exec $DOTFILES/scripts/lock
 
+# Scratchpad
+bindsym $mod+Tab scratchpad show
+bindsym $mod+Shift+Tab move scratchpad
+
 # Change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -98,8 +102,8 @@ bindsym $mod+w exec firefox
 # Open Alacritty
 bindsym $mod+Return exec kitty
 
-# Open Flameshot (screenshots)
-bindsym $mod+p exec flameshot gui
+# Open gscreenshot (screenshots)
+bindsym $mod+p exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 
 # Player controls
 bindsym $mod+Shift+comma exec playerctl previous
@@ -148,7 +152,7 @@ exec_always --no-startup-id picom -f
 
 # Rofi
 bindsym $mod+d exec --no-startup-id rofi -show run
-bindsym $mod+Tab exec --no-startup-id rofi -show window
+# bindsym $mod+Tab exec --no-startup-id rofi -show window 
 bindsym $mod+space exec --no-startup-id rofi -show drun
 
 # Allocate Applications to Workspaces

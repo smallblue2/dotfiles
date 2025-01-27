@@ -24,8 +24,12 @@ BATTERY_INFO=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0)
 
 # Function to extract field values
 get_field() {
-    echo "$BATTERY_INFO" | grep -E "^\s*$1:\s" | head -n1 | awk -F ':' '{print $2}' | xargs
+    local value=$(echo "$BATTERY_INFO" | grep -E "^\s*$1:\s" | head -n1 | awk -F ':' '{print $2}' | xargs)
+    echo "${value:-N/A}"
 }
+
+# Get battery state
+BATTERY_STATE=$(get_field "state")
 
 case "$STATE" in
     0)
@@ -36,9 +40,13 @@ case "$STATE" in
         OUTPUT="$ENERGY_RATE | $ENERGY_NOW / $ENERGY_FULL"
         ;;
     1)
-        # Format: 2.8 hours
-        TIME_TO_EMPTY=$(get_field "time to empty")
-        OUTPUT="$TIME_TO_EMPTY"
+        # Format: 2.8 hours (only if discharging)
+        if [[ "$BATTERY_STATE" == "discharging" ]]; then
+            TIME_TO_EMPTY=$(get_field "time to empty")
+            OUTPUT="$TIME_TO_EMPTY"
+        else
+            OUTPUT="N/A (Battery $BATTERY_STATE)"
+        fi
         ;;
     2)
         # Format: 80%

@@ -1,0 +1,56 @@
+# Start ssh-agent if not running
+if [ -z "$SSH_AUTH_SOCK" ]; then
+    eval $(ssh-agent -s)
+    # Add any relevant SSH keys
+    ssh-add ~/.ssh/id_edgithub
+fi
+
+# Prompt
+autoload -U colors && colors # enable colours
+PROMPT='%F{green}%n@%m%f %F{white}%2~%f %F{yellow}❯%f '
+
+# Rebind Ctrl-r for reverse search in vi mode
+bindkey -M vicmd '^r' history-incremental-search-backward
+bindkey -M viins '^r' history-incremental-search-backward
+
+# Enable case-insensitive completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
+# Set case-insensitive globbing
+setopt NO_CASE_GLOB
+
+# Aliases
+alias ls="ls --color=auto"
+alias n="nano"
+alias hx="helix"
+alias v="nvim"
+alias t="todo.sh"
+alias sv="ssh ryann62@student.computing.dcu.ie"
+alias p="python3"
+alias pl="swipl -s"
+alias tdls="todo.sh list | awk '/due:[0-9-]{10}/ {match(\$0, /due:([0-9-]{10})/, a); print a[1], \$0}' | sort | cut -d ' ' -f2-"
+alias antlr='java -cp "/home/ryann62/College/Y4S1/CSC1098-Compilers/antlr-source/antlr-4.13.2-complete.jar:$CLASSPATH" org.antlr.v4.Tool'
+alias grun='java -cp "/home/ryann62/College/Y4S1/CSC1098-Compilers/antlr-source/antlr-4.13.2-complete.jar:$CLASSPATH" org.antlr.v4.gui.TestRig'
+
+# Environment Variables
+export DOTFILES=/home/ryann62/dotfiles
+export ANDROID_SDK_ROOT=$HOME/Android/Sdk
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:/usr/local/go/bin:/opt/flutter/bin:$HOME/.cargo/bin:/home/ryann62/.deno/bin:$PATH
+export CLASSPATH=/home/ryann62/College/Y4S1/CSC1098-Compilers/antlr-source/antlr-4.13.2-complete.jar
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+export SONY="88:C9:E8:FB:D1:CB"
+export LS_COLORS='di=32:fi=0:ln=36:pi=33:so=35:bd=40;33:cd=40;34:or=31:ex=34'
+export search=/home/ryann62/College/Y4S1/CSC1103-Search
+export crypto=/home/ryann62/College/Y4S1/CSC1100_Crypto
+export compilers=/home/ryann62/College/Y4S1/CSC1098-Compilers
+
+# Todo Reminder
+echo "TODO:"
+todo.sh list
+
+# Vi Key Bindings
+bindkey -v
+
+# zoxide init
+eval "$(zoxide init zsh)"

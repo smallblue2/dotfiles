@@ -5,6 +5,9 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
     ssh-add ~/.ssh/id_edgithub
 fi
 
+# Auto-complete
+autoload -Uz compinit && compinit
+
 # Prompt
 autoload -U colors && colors # enable colours
 PROMPT='%F{green}%n@%m%f %F{white}%2~%f %F{yellow}❯%f '
@@ -31,6 +34,7 @@ alias pl="swipl -s"
 alias tdls="todo.sh list | awk '/due:[0-9-]{10}/ {match(\$0, /due:([0-9-]{10})/, a); print a[1], \$0}' | sort | cut -d ' ' -f2-"
 alias antlr='java -cp "/home/ryann62/College/Y4S1/CSC1098-Compilers/antlr-source/antlr-4.13.2-complete.jar:$CLASSPATH" org.antlr.v4.Tool'
 alias grun='java -cp "/home/ryann62/College/Y4S1/CSC1098-Compilers/antlr-source/antlr-4.13.2-complete.jar:$CLASSPATH" org.antlr.v4.gui.TestRig'
+alias gl-run='gitlab-ci-local --container-executable podman'
 
 # Environment Variables
 export DOTFILES=/home/ryann62/dotfiles

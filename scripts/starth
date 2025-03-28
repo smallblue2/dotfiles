@@ -1,0 +1,13 @@
+#!/usr/bin/sh
+
+export GDK_BACKEND=wayland
+export QT_QPA_PLATFORM=wayland
+export SDL_VIDEODRIVER=wayland
+export CLUTTER_BACKEND=wayland
+export ELECTRON_ENABLE_OZONE=1
+export OZONE_PLATFORM_HINT=wayland
+export DOTFILES=$HOME/dotfiles
+flatpak override --user --env=ELECTRON_ENABLE_OZONE=1 io.github.zen_browser.Zen
+flatpak override --user --env=OZONE_PLATFORM_HINT=wayland io.github.zen_browser.Zen
+flatpak override --user --env=ELECTRON_EXTRA_LAUNCH_ARGS="--enable-features=UseOzonePlatform --ozone-platform=wayland" io.github.zen_browser.Zen
+Hyprland

@@ -4,6 +4,8 @@
 
 export DOTFILES=$HOME/dotfiles
 
+flatpak override --user --reset-all io.github.zen_browser.Zen
+
 # Start picom for compositing
 picom &
 
